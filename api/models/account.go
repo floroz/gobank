@@ -1,13 +1,17 @@
 package models
 
+import "time"
+
 type Account struct {
-	ID            int     `json:"id"`
-	FirstName     string  `json:"first_name"`
-	LastName      string  `json:"last_name"`
-	AccountNumber int64   `json:"account_number"`
-	Balance       float64 `json:"balance"`
-	PhoneNumber   string  `json:"phone_number"`
-	Country       string  `json:"country"`
+	ID            int       `json:"id"`
+	FirstName     string    `json:"first_name"`
+	LastName      string    `json:"last_name"`
+	AccountNumber int64     `json:"account_number"`
+	Balance       float64   `json:"balance"`
+	PhoneNumber   string    `json:"phone_number"`
+	Country       string    `json:"country"`
+	CreatedAt     time.Time `json:"created_at"`
+	UpdatedAt     time.Time `json:"updated_at"`
 }
 
 type CreateAccountDTO struct {
