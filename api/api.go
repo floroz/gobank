@@ -4,7 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/floroz/gobank/api/account"
+	"github.com/floroz/gobank/api/middlewares"
+	"github.com/floroz/gobank/api/resources/account"
 )
 
 type APIServer struct {
@@ -24,5 +25,8 @@ func (s *APIServer) Run() {
 	mux.HandleFunc("GET /account/{id}", accountRouter.GetAccount)
 	mux.HandleFunc("POST /account", accountRouter.CreateAccount)
 
-	log.Fatal(http.ListenAndServe(s.listenAddress, mux))
+	loggedMux := middlewares.LoggerMiddleware(mux)
+
+	log.Println("Server running on: ", s.listenAddress)
+	log.Fatal(http.ListenAndServe(s.listenAddress, loggedMux))
 }
