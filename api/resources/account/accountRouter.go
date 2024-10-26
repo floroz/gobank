@@ -12,8 +12,8 @@ func (s *accountRouter) HandleAccount(w http.ResponseWriter, r *http.Request) {
 
 func (s *accountRouter) GetAccount(w http.ResponseWriter, r *http.Request) {
 	// id := r.PathValue("id")
-	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode("OKAY")
 }
 
@@ -27,7 +27,9 @@ func (s *accountRouter) CreateAccount(w http.ResponseWriter, r *http.Request) {
 	account := NewAccount("Hey", "Joe")
 
 	// return it to client
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
+
 	json.NewEncoder(w).Encode(account)
 }
 
