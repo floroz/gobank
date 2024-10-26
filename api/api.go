@@ -19,7 +19,7 @@ func NewAPIServer(listenAddress string) *APIServer {
 
 func (s *APIServer) Run() {
 	mux := http.NewServeMux()
-	accountRouter := account.AccountRouter{}
+	accountRouter := account.NewAccountRouter()
 
 	mux.HandleFunc("GET /account/{id}", accountRouter.GetAccount)
 	mux.HandleFunc("POST /account", accountRouter.CreateAccount)

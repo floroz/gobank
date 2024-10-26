@@ -5,21 +5,25 @@ import (
 	"net/http"
 )
 
-type AccountRouter struct{}
+type accountRouter struct{}
 
-func (s *AccountRouter) HandleAccount(w http.ResponseWriter, r *http.Request) {
+func (s *accountRouter) HandleAccount(w http.ResponseWriter, r *http.Request) {
 }
 
-func (s *AccountRouter) GetAccount(w http.ResponseWriter, r *http.Request) {
+func (s *accountRouter) GetAccount(w http.ResponseWriter, r *http.Request) {
 	id := r.PathValue("id")
 	fmt.Println("GET Account: ", id)
 }
 
-func (s *AccountRouter) CreateAccount(w http.ResponseWriter, r *http.Request) {
+func (s *accountRouter) CreateAccount(w http.ResponseWriter, r *http.Request) {
 }
 
-func (s *AccountRouter) DeleteAccount(w http.ResponseWriter, r *http.Request) {
+func (s *accountRouter) DeleteAccount(w http.ResponseWriter, r *http.Request) {
 }
 
-func (s *AccountRouter) HandleTransfer(w http.ResponseWriter, r *http.Request) {
+func (s *accountRouter) HandleTransfer(w http.ResponseWriter, r *http.Request) {
+}
+
+func NewAccountRouter() *accountRouter {
+	return &accountRouter{}
 }
