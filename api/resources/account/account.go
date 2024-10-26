@@ -1,11 +1,11 @@
 package account
 
 type Account struct {
-	ID            int
-	FirstName     string
-	LastName      string
-	AccountNumber int64
-	Balance       float64
+	ID            int     `json:"id"`
+	FirstName     string  `json:"first_name"`
+	LastName      string  `json:"last_name"`
+	AccountNumber int64   `json:"account_number"`
+	Balance       float64 `json:"balance"`
 	// PhoneNumber   string
 	// Country       string
 }
